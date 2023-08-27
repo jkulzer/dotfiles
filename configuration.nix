@@ -77,6 +77,7 @@
       hyfetch
       blahaj
       uwufetch
+      onefetch # Like neofetch, but for git repos
 
       # Organization
       obsidian # Knowledge manager
