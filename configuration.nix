@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
-
+{ config, pkgs, lib, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -147,6 +146,8 @@
     '';
   };
 
+  programs.neovim.enable = false;
+
   programs.git = {
     enable = true;
     config = {
@@ -160,18 +161,6 @@
     }; # config closed
   };
 
-  programs.neovim = {
-    enable = true;
-    configure = {
-      customRC = ''
-      set number relativenumber
-      set expandtab      " Convert tabs to spaces
-      set tabstop=2      " Number of visual spaces per tab
-      set shiftwidth=2   " Number of spaces for autoindenting
-      '';
-    };
-  };
-  
   # Sets default shell to ZSH
   users.defaultUserShell = pkgs.zsh;
 
@@ -193,10 +182,6 @@
         "kubectl" # Shortens kubectl to k and has other useful aliases
         "vi-mode" # Enables editing of commands with vim commands (activate normal mode with esc)
         "fzf" # Fuzzy finder
-        "zsh-fzf-tab"
-      ];
-      customPkgs = [
-        pkgs.zsh-fzf-tab
       ];
     };
   };
