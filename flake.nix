@@ -1,5 +1,4 @@
 {
-
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
     nixvim = {
@@ -18,15 +17,16 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-	import = [
-	nixvim
-	];
       };
       modules = [
         ./configuration.nix
 	nixvim.nixosModules.nixvim
 	{
-	programs = import ./neovim.nix;
+	  #programs = import ./neovim/neovim.nix;
+	  programs.nixvim = {
+	    enable = true; 
+	    colorscheme.gruvbox.enable = true;
+	  };
 	}
 	
         home-manager.nixosModules.home-manager

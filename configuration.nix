@@ -146,8 +146,6 @@
     '';
   };
 
-  programs.neovim.enable = false;
-
   programs.git = {
     enable = true;
     config = {
