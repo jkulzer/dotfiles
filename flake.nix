@@ -22,11 +22,7 @@
         ./configuration.nix
 	nixvim.nixosModules.nixvim
 	{
-	  #programs = import ./neovim/neovim.nix;
-	  programs.nixvim = {
-	    enable = true; 
-	    colorscheme.gruvbox.enable = true;
-	  };
+	  programs = import ./neovim/neovim.nix;
 	}
 	
         home-manager.nixosModules.home-manager

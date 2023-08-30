@@ -54,7 +54,7 @@
     pulse.enable = true;
   };
 
-  # Needed for Hyprland
+  # Needed for Hyprland (may be obsolete for sway)
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -85,11 +85,20 @@
       discord
       element-desktop # Matrix client
 
-      # Hyprland stuff
-      hyprpaper
+      # Sway stuff
+      swaybg
+      autotiling
 
       # Coding
       gh # Github CLI, makes the git login easier
+      # Golang
+      go
+      # Rust
+      cargo
+
+      # LSPs
+      gopls # Golang
+      rust-analyzer # Rust
 
       # Kubernetes stuff
       kubectl
@@ -109,11 +118,16 @@
     curl
     wget
     dig # DNS lookup
+    htop # like task manager
+
     # terminal multiplexer (useful when having to debug from tty)
     tmux
+
     # fzf (fuzzy finder) (dependency for fzf zsh plugin)
     fzf
-    zsh-fzf-tab # fzf for zsh tab completion
+
+    # Coding
+    cargo # Rust
 
   ];
   
@@ -122,7 +136,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --asterisks --width 60 --cmd Hyprland --greeting 'Access restricted to authorized users'";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --asterisks --width 60 --cmd sway --greeting 'Access restricted to authorized users'";
       };
     };
   };
