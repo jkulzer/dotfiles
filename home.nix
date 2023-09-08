@@ -120,20 +120,6 @@
   services.syncthing = {
     enable = true;
   };
-  programs.firefox = {
-    enable = true;
-    profiles.default = {
-      isDefault = true;
-      name = "default";
-      search = {
-	default = "DuckDuckGo";
-	force = true;
-      };
-      extensions = [
-	#pkgs.nur.repos.rycee.firefox-addons.privacy-badger 
-      ];
-    };
-  };
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
