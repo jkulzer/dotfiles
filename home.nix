@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.username = "johannes";
@@ -117,13 +117,28 @@
       Restart = "on-failure";
     };
   };
+  services.syncthing = {
+    enable = true;
+  };
   programs.firefox = {
     enable = true;
+    profiles.default = {
+      isDefault = true;
+      name = "default";
+      search = {
+	default = "DuckDuckGo";
+	force = true;
+      };
+      extensions = [
+	#pkgs.nur.repos.rycee.firefox-addons.privacy-badger 
+      ];
+    };
   };
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     settings = {
+      font_size = "10.0";
       background_opacity = "0.8";
       background = "#38133B";
     }; # Kitty settings end
@@ -138,8 +153,8 @@
     }
 
     window#waybar {
-        background-color: rgba(214, 2, 112, 0.5);
-        border-bottom: 3px rgba(214, 2, 112, 0.5);
+        background-color: rgba(214, 2, 112, 0.0);
+        border-bottom: 3px rgba(214, 2, 112, 0.0);
         color: #ffffff;
         transition-property: background-color;
         transition-duration: .5s;
@@ -259,6 +274,40 @@
       }; # mainBar config end
     }; # waybar settings end
   }; # waybar config end
+  # ConfigFile for helm repositories
+  home.file.".config/helm/repositories.yaml" = {
+    text = ''
+    repositories:
+    - name: prometheus-community
+      url: https://prometheus-community.github.io/helm-charts
+    - name: authentik
+      url: https://charts.goauthentik.io
+    - name: gitea-charts
+      url: https://dl.gitea.com/charts/
+    - name: grafana-charts
+      url: https://grafana.github.io/helm-charts/
+    - name: rook-release
+      url: https://charts.rook.io/release
+    - name: cilium
+      url: https://helm.cilium.io/
+    - name: zammad
+      url: https://zammad.github.io/zammad-helm
+    - name: metrics-server
+      url: https://kubernetes-sigs.github.io/metrics-server/
+    - name: fairwinds-stable
+      url: https://charts.fairwinds.com/stable
+    - name: argo
+      url: https://argoproj.github.io/argo-helm
+    - name: infisical-helm-charts
+      url: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts/
+    - name: crossplane-stable
+      url: https://charts.crossplane.io/stable
+    - name: mittwald
+      url: https://helm.mittwald.de
+    - name: authelia
+      url: https://charts.authelia.com
+    '';
+  }; # helm config ending
   # ConfigFile for hyfetch
   home.file.".config/hyfetch.json" = {
     text = ''

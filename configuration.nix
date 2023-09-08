@@ -69,6 +69,9 @@
       # The best browser
       firefox
 
+      # Utilities
+      syncthing # File synchronization software
+
       # Terminal stuff
       kitty # The terminal of choice
       # Fetch programs
@@ -119,6 +122,7 @@
     wget
     dig # DNS lookup
     htop # like task manager
+    openssl # THE cryptographic library
 
     # terminal multiplexer (useful when having to debug from tty)
     tmux
@@ -212,6 +216,15 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # Open ports in firewall
+  networking.firewall.allowedTCPPorts = [ 
+    22000 # Syncthing
+  ];
+  networking.firewall.allowedUDPPorts = [ 
+    22000 # Syncthing
+    21027 # Syncthing
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

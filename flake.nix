@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixvim, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixvim, nur, ... }: {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       pkgs = import nixpkgs {
