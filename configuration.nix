@@ -99,6 +99,9 @@
       # Rust
       cargo
 
+      # Toolkits
+      operator-sdk # Tool for writing Kubernetes Operators in Golang
+
       # LSPs
       gopls # Golang
       rust-analyzer # Rust
@@ -171,9 +174,8 @@
         name = "jkulzer";
         email = "git@jkulzer.dev";
       };
-      init = {
-        defaultBranch = "main";
-      };
+      core.editor = "nvim";
+      init.defaultBranch = "main";
       pull.rebase = false;
     }; # config closed
   };
