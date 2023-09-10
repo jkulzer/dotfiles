@@ -292,6 +292,10 @@
       url: https://helm.mittwald.de
     - name: authelia
       url: https://charts.authelia.com
+    - name: harbor
+      url: https://helm.goharbor.io
+    - name: dragonfly
+      url: https://dragonflyoss.github.io/helm-charts
     '';
   }; # helm config ending
   # ConfigFile for hyfetch
