@@ -9,23 +9,9 @@
   imports = [ 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./bootloader.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-    useOSProber = true;
-    configurationLimit = 25;
-  };
-
-  # Enables the usual predictable behaviour of the /tmp directory
-  boot.tmp.cleanOnBoot = true;
-
-  # Enables NTFS support (allows mounting of Windows disks)
-  boot.supportedFilesystems = [ "ntfs" ];
 
   fonts.packages = with pkgs; [
   # Good default font
@@ -222,7 +208,7 @@
         disabled = true;
       };
     };
-  };
+  }; 
 
 
   # Enable the OpenSSH daemon.

@@ -22,7 +22,7 @@
         ./configuration.nix
 	nixvim.nixosModules.nixvim
 	{
-	  programs = import ./neovim/neovim.nix;
+	  programs = import ./neovim.nix;
 	}
 	
         home-manager.nixosModules.home-manager
@@ -30,7 +30,14 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-          home-manager.users.johannes= import ./home.nix;
+          home-manager.users.johannes = {
+	    imports = [
+	      ./home.nix # Miso configs
+	      ./sway.nix # Window Manager config
+	      ./mako.nix # Mako (notification daemon) config
+	      ./gtk.nix # Catppuccin gtk config
+	    ];
+	  };
         }
       ];
     };
