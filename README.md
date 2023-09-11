@@ -52,6 +52,11 @@ cd ~
 git clone https://github.com/jkulzer/dotfiles
 ```
 
+2. Fix some weird WSL stuff
+```
+mount -o remount,rw /tmp/.X11-unix
+```
+
 
 # Useful repos:
 * https://github.com/gytis-ivaskevicius/nixfiles/
