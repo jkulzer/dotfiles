@@ -125,7 +125,8 @@
     shellIntegration.enableZshIntegration = true;
     settings = {
       font_size = "10.0";
-      background_opacity = "0.8";
+      #background_opacity = "0.8";
+      background_opacity = "1";
       background = "#38133B";
     }; # Kitty settings end
   }; # Kitty end
