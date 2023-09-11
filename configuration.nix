@@ -35,6 +35,7 @@
   # Needed for a lot icons
   fira-code
   fira-code-symbols
+  nerdfonts
   ];
 
   networking.hostName = "desktop"; # Define your hostname.
@@ -80,6 +81,9 @@
       blahaj
       uwufetch
       onefetch # Like neofetch, but for git repos
+      # Other fun programs
+      gay # Like lolcat, but gay
+
 
       # Organization
       obsidian # Knowledge manager
@@ -93,14 +97,18 @@
       autotiling
 
       # Coding
+
+      # Generic Tools
       gh # Github CLI, makes the git login easier
+      gnumake # Needed for operator-sdk (and generally a useful tool)
+
       # Golang
       go
+      operator-sdk # Tool for writing Kubernetes Operators in Golang
+
       # Rust
       cargo
 
-      # Toolkits
-      operator-sdk # Tool for writing Kubernetes Operators in Golang
 
       # LSPs
       gopls # Golang
