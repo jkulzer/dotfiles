@@ -1,12 +1,19 @@
 {
   nixvim = {
     enable = true;
+    colorschemes.rose-pine.enable = true;
     plugins = {
       # This gives every parenthesis a different color
       rainbow-delimiters.enable = true;
       treesitter.enable = true;
       cmp-dictionary.enable = true;
       cmp-nvim-lsp.enable = true;
+      comment-nvim.enable = true; # Provides easy keybindings to comment a line or multiple lines
+      airline.enable = true; # Fancy statusbar
+      coq-nvim = {
+	enable = true; # Autocompletion display
+	autoStart = true;
+      };
       lsp = {
         enable = true;
 	servers = {
