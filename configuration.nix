@@ -22,6 +22,7 @@
   fira-code
   fira-code-symbols
   nerdfonts
+  emojione # Open Source Emoji font
   ];
 
   networking.hostName = "desktop"; # Define your hostname.
@@ -70,7 +71,6 @@
       # Other fun programs
       gay # Like lolcat, but gay
 
-
       # Organization
       obsidian # Knowledge manager
 
@@ -81,6 +81,7 @@
       # Sway stuff
       swaybg
       autotiling
+      wl-clipboard # Can copy to clipboard from the CLI
 
       # Coding
 
@@ -95,6 +96,9 @@
       # Rust
       cargo
 
+      # Python
+      python3
+
 
       # LSPs
       gopls # Golang
@@ -106,7 +110,8 @@
       kubernetes-helm
       talosctl
 
-      # Media controls
+      # Media stuff
+      mpv
       playerctl
     ];
   };
