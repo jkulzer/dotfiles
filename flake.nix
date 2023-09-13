@@ -36,6 +36,7 @@
 	      ./sway.nix # Window Manager config
 	      ./mako.nix # Mako (notification daemon) config
 	      ./gtk.nix # Catppuccin gtk config
+	      ./waybar.nix # Nice statusbar
 	    ];
 	  };
         }
