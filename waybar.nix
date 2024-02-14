@@ -152,17 +152,9 @@
         layer = "top";
         position = "top";
         modules-left = ["sway/workspaces"];
-        modules-center = ["clock"];
-        modules-right = ["mpris" "pulseaudio"];
+        modules-right = ["clock" "pulseaudio"];
         pulseaudio = {
           scroll-step = 5; # in %
-        };
-        mpris = {
-          format = "{title} - {artist}";
-          tooltip-format = "{album}";
-          on-left-click = "previous";
-          on-right-click = "next";
-          on-double-click = "play-pause";
         };
       }; # mainBar config end
     }; # waybar settings end

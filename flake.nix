@@ -17,6 +17,10 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
+	#//TODO TEMPORARY FIX!!!
+	config.permittedInsecurePackages = [
+	  "electron-25.9.0"
+        ];
       };
       modules = [
         ./configuration.nix
@@ -32,11 +36,15 @@
 
           home-manager.users.johannes = {
 	    imports = [
-	      ./home.nix # Miso configs
+	      ./home.nix # Misc configs
 	      ./sway.nix # Window Manager config
 	      ./mako.nix # Mako (notification daemon) config
 	      ./gtk.nix # Catppuccin gtk config
 	      ./waybar.nix # Nice statusbar
+	      ./direnv.nix # Automatically enter default.nix environment
+	      ./kitty.nix # Terminal
+	      ./helm.nix # Helm repo configuration
+	      ./bemenu.nix # Application Launcher
 	    ];
 	  };
         }

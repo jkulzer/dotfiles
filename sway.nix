@@ -17,30 +17,39 @@
 	  text = "#ffffff";
 	};
 	focusedInactive= {
-	  background = "#285577";
-	  border = "#0038a8";
-	  childBorder = "#0038a8";
-	  indicator = "#0038a8";
-	  text = "#ffffff";
-	};
-	unfocused = {
-	  background = "#285577";
-	  border = "#0038a8";
-	  childBorder = "#0038a8";
-	  indicator = "#0038a8";
-	  text = "#ffffff";
-	};
+	background = "#285577";
+	border = "#0038a8";
+	childBorder = "#0038a8";
+	indicator = "#0038a8";
+	text = "#ffffff";
       };
-      gaps = {
-	inner = 2;
-	outer = 5;
+      unfocused = {
+	background = "#285577";
+	border = "#0038a8";
+	childBorder = "#0038a8";
+	indicator = "#0038a8";
+	text = "#ffffff";
       };
-      window = {
-	titlebar = false;
+    };
+    gaps = {
+      inner = 2;
+      outer = 5;
+    };
+    window = {
+      titlebar = false;
+    };
+    bars = []; # This disables the default bar
+    # I don't want to start waybar from here, imo a systemd service provides control
+    output = {  
+      DP-3 = {
+	pos = "0 0";
       };
-      bars = []; # This disables the default bar
-      # I don't want to start waybar from here, imo a systemd service provides control
-      workspaceOutputAssign = [
+      HDMI-A-1 = {
+	# pos = "-1920 0";
+	pos = "-1680 0";
+      };
+    };
+    workspaceOutputAssign = [
 	{ workspace = "1";	output = "DP-3";}
 	{ workspace = "3";	output = "DP-3";}
 	{ workspace = "5";	output = "DP-3";}
@@ -63,16 +72,27 @@
       show-failed-attempts = true;
 
       # The line separating the indicator from the circle inside
-      line-color = "9B4F96"; # Violet
+      line-color = "#24273a"; # Violet
 
       # The donut
       indicator-radius = 200;
       indicator-idle-visible = true;
       indicator-thickness = 20;
-      ring-color = "009E54"; # Green
+      key-hl-color = "#ea76cb";
+      ring-color = "#f5bde6";
+
+      ring-clear-color = "#7dc4e4";
+      ring-caps-lock-color = "##eed49f";
+      ring-ver-color = "#fe640b";
+      ring-wrong-color = "#d20f39";
+
+      inside-clear-color = "#209fb5";
+      inside-caps-lock-color = "#df8e1d";
+      inside-ver-color = "#f5a97f";
+      inside-wrong-color = "#ed8796";
 
       # Background color
-      color = "77287D"; # Violet
+      color = "#24273a";
     };
   };
   # swaybg systemd unit

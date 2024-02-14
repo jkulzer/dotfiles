@@ -1,10 +1,14 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 {
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-25.9.0"
+  # ];
 
   imports = [ 
     # Include the results of the hardware scan.
@@ -12,17 +16,16 @@
     ./bootloader.nix
   ];
 
-
   fonts.packages = with pkgs; [
-  # Good default font
-  noto-fonts
-  # Cool looking mondern font
-  roboto
-  # Needed for a lot icons
-  fira-code
-  fira-code-symbols
-  nerdfonts
-  emojione # Open Source Emoji font
+    # Good default font
+    noto-fonts
+    # Cool looking mondern font
+    roboto
+    # Needed for a lot icons
+    fira-code
+    fira-code-symbols
+    nerdfonts
+    emojione # Open Source Emoji font
   ];
 
   networking.hostName = "desktop"; # Define your hostname.
@@ -59,9 +62,15 @@
 
       # Utilities
       syncthing # File synchronization software
+      libsForQt5.ark # KDE Unzipping tool
 
       # Terminal stuff
+
       kitty # The terminal of choice
+
+      # Other tools
+      bat
+
       # Fetch programs
       neofetch
       hyfetch
@@ -77,6 +86,7 @@
       # Communication
       discord
       element-desktop # Matrix client
+      vesktop
 
       # Sway stuff
       swaybg
@@ -99,7 +109,6 @@
       # Python
       python3
 
-
       # LSPs
       gopls # Golang
       rust-analyzer # Rust
@@ -109,6 +118,14 @@
       kustomize
       kubernetes-helm
       talosctl
+      kube-capacity # Shows how much resources are allocated by the cpu/memory requests/limits
+      
+      # Other IAC stuff
+      terraform # Should be replaced with opentofu when it gets it first release
+
+      # Networking
+      winbox # router configuration software from Mikrotik
+      traceroute
 
       # Media stuff
       mpv
@@ -135,7 +152,22 @@
     # Coding
     cargo # Rust
 
+    # just nmap
+    nmap
+
+    # audio
+    alsa-utils
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
+
+  # Docker
+  virtualisation.docker.enable = true;
   
   # A display/login manager
   services.greetd = {
@@ -184,6 +216,9 @@
 
   programs.zsh = {
     enable = true;
+    shellAliases = {
+      ssh = "kitty +kitten ssh -i ~/.ssh/id_rsa";
+    };
     # Disables the startup wizard
     shellInit = "zsh-newuser-install() { :; }";
     # Useful syntax stuff
@@ -217,11 +252,15 @@
 
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # Open ports in firewall
   networking.firewall.allowedTCPPorts = [ 
     22000 # Syncthing
+    5173 # Svelte Dev
   ];
   networking.firewall.allowedUDPPorts = [ 
     22000 # Syncthing
@@ -233,6 +272,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  services.tailscale.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -248,4 +289,3 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
-

@@ -17,8 +17,11 @@ in
   "${modifier}+t" = "exec kitty"; # Terminal
   "${modifier}+f" = "exec firefox"; # Firefox
   "${modifier}+w" = "exec swaylock"; # Lockscreen
-  "${modifier}+d" = "exec discord"; # Discord
+  "${modifier}+d" = "exec vesktop"; # Discord
   "${modifier}+o" = "exec obsidian"; # Obsidian (Note taking tool)
+  "${modifier}+g" = "exec gimp"; # Gimp
+  "${modifier}+r" = "exec winbox"; # Winbox
+  "${modifier}+Space" = "exec bemenu-run"; # bemenu
 
   # Music control
  "Ctrl+Shift+l"  = "exec playerctl next"; # Next Track
