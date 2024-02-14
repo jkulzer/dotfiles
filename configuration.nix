@@ -221,6 +221,8 @@
     };
     # Disables the startup wizard
     shellInit = "zsh-newuser-install() { :; }";
+    # Increases the hist size
+    histSize = 25000;
     # Useful syntax stuff
     autosuggestions.enable = true;
     enableCompletion = true;
