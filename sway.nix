@@ -5,8 +5,6 @@
   wayland.windowManager.sway = {
     enable = true;
     config = {
-      terminal = "kitty";
-      modifier = "Mod4"; # Super
       keybindings = import ./sway-keybindings.nix {inherit pkgs;};
       colors = {
 	focused = {
