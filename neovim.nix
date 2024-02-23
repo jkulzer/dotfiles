@@ -6,10 +6,11 @@
       enable = true;
       flavour = "mocha";
     };
+    globals.mapleader = " ";
     keymaps = [
       {
 	mode = "n";
-	key = "<space>ee";
+	key = "<leader>ee";
 	# Expands the LSP error message (useful when the message is longer than a line, because the LSP doesn't have line wrap
 	action = "<cmd>lua vim.diagnostic.open_float()<CR>";
 	options = {
@@ -25,11 +26,14 @@
       comment-nvim.enable = true; # Provides easy keybindings to comment a line or multiple lines
       airline.enable = true; # Fancy statusbar
       todo-comments.enable = true; # Shows the TODO comments in a colorful way
-      nvim-autopairs.enable = true; # Bracket autoclose plugin
-      coq-nvim = {
-	enable = true; # Autocompletion display
-	autoStart = true;
+      nvim-autopairs = {
+	enable = true; # Bracket autoclose plugin
+	checkTs = true;
       };
+ #      coq-nvim = {
+	# enable = true; # Autocompletion display
+	# autoStart = true;
+ #      };
       lsp = {
         enable = true;
 	servers = {
@@ -49,11 +53,11 @@
       telescope = {
 	enable = true;
 	keymaps = {
-	  "<space>gf" = {
+	  "<leader>gf" = {
 	    action = "git_files";
 	    desc = "Telescope git files";
 	  };
-	  "<space>ff" = {
+	  "<leader>ff" = {
 	    action = "find_files";
 	    desc = "Telescope files generally";
 	  };

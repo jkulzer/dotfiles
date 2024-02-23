@@ -69,8 +69,7 @@
       kitty # The terminal of choice
 
       # Other tools
-      bat # cat alternative
-      eza # ls alternative 
+      bat
 
       # Fetch programs
       neofetch
