@@ -122,6 +122,7 @@
       
       # Other IAC stuff
       terraform # Should be replaced with opentofu when it gets it first release
+      alejandra # nix formatter
 
       # Networking
       winbox # router configuration software from Mikrotik
