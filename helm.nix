@@ -45,6 +45,12 @@
       url: https://oauth2-proxy.github.io/manifests
     - name: jetstack 
       url: https://charts.jetstack.io
+    - name: emberstack
+      url: https://emberstack.github.io/helm-charts
+    - name: minicloudlabs 
+      url: https://minicloudlabs.github.io/helm-charts
+    - name: stakater 
+      url: https://stakater.github.io/stakater-charts
     '';
   }; # helm config ending
 }

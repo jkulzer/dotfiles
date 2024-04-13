@@ -2,7 +2,7 @@
 
 with pkgs;
 let
-  modifier = "Mod4";
+  modifier = "Mod1";
   left = "h";
   down = "j";
   up = "k";
@@ -15,6 +15,7 @@ in
 
   # Applications
   "${modifier}+t" = "exec kitty"; # Terminal
+  "${modifier}+Return" = "exec kitty"; # Terminal
   "${modifier}+f" = "exec firefox"; # Firefox
   "${modifier}+w" = "exec swaylock"; # Lockscreen
   "${modifier}+d" = "exec vesktop"; # Discord
@@ -30,6 +31,8 @@ in
  "Ctrl+Shift+j"  = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; # Volume up by 5%
  "Ctrl+Shift+k"  = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # Volume down by 5 %
 
+  # screenshots
+  "${modifier}+p" = "exec grim -g \"$(slurp)\" - | wl-copy";
 
   "${modifier}+${left}" = "focus left; exec $movemouse";
   "${modifier}+${down}" = "focus down; exec $movemouse";
@@ -52,16 +55,16 @@ in
   "${modifier}+9" = "workspace number 9";
   "${modifier}+0" = "workspace number 10";
 
-  "${modifier}+Ctrl+1" = "move container to workspace number 1";
-  "${modifier}+Ctrl+2" = "move container to workspace number 2";
-  "${modifier}+Ctrl+3" = "move container to workspace number 3";
-  "${modifier}+Ctrl+4" = "move container to workspace number 4";
-  "${modifier}+Ctrl+5" = "move container to workspace number 5";
-  "${modifier}+Ctrl+6" = "move container to workspace number 6";
-  "${modifier}+Ctrl+7" = "move container to workspace number 7";
-  "${modifier}+Ctrl+8" = "move container to workspace number 8";
-  "${modifier}+Ctrl+9" = "move container to workspace number 9";
-  "${modifier}+Ctrl+0" = "move container to workspace number 10";
+  "${modifier}+Shift+1" = "move container to workspace number 1";
+  "${modifier}+Shift+2" = "move container to workspace number 2";
+  "${modifier}+Shift+3" = "move container to workspace number 3";
+  "${modifier}+Shift+4" = "move container to workspace number 4";
+  "${modifier}+Shift+5" = "move container to workspace number 5";
+  "${modifier}+Shift+6" = "move container to workspace number 6";
+  "${modifier}+Shift+7" = "move container to workspace number 7";
+  "${modifier}+Shift+8" = "move container to workspace number 8";
+  "${modifier}+Shift+9" = "move container to workspace number 9";
+  "${modifier}+Shift+0" = "move container to workspace number 10";
 
   "${modifier}+Shift+c" = "reload";
   "${modifier}+Shift+r" = "restart";

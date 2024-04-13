@@ -63,6 +63,7 @@
       # Utilities
       syncthing # File synchronization software
       libsForQt5.ark # KDE Unzipping tool
+      jq
 
       # Terminal stuff
 
@@ -92,8 +93,18 @@
       swaybg
       autotiling
       wl-clipboard # Can copy to clipboard from the CLI
+      grim # screenshots
+      slurp # allows screenshots to be selection-based
 
       # Coding
+
+      # Kubernetes stuff
+      kubectl
+      kustomize
+      kubernetes-helm
+      talosctl
+      kube-capacity
+      opentofu
 
       # Generic Tools
       gh # Github CLI, makes the git login easier
@@ -113,15 +124,8 @@
       gopls # Golang
       rust-analyzer # Rust
 
-      # Kubernetes stuff
-      kubectl
-      kustomize
-      kubernetes-helm
-      talosctl
-      kube-capacity # Shows how much resources are allocated by the cpu/memory requests/limits
       
       # Other IAC stuff
-      terraform # Should be replaced with opentofu when it gets it first release
       alejandra # nix formatter
 
       # Networking
@@ -158,6 +162,8 @@
 
     # audio
     alsa-utils
+
+    neovim
   ];
 
   programs.steam = {

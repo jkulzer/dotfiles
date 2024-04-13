@@ -2,8 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
     nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:jkulzer/nvim-nix";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,18 +17,15 @@
 	pkgs = import nixpkgs {
 	  system = "x86_64-linux";
 	  config.allowUnfree = true;
-	  #//TODO TEMPORARY FIX!!!
-	  config.permittedInsecurePackages = [
-	    "electron-25.9.0"
+	  overlays = [
+	    (final: prev: {
+	      neovim = nixvim.packages.x86_64-linux.default;
+	    })
 	  ];
 	};
 
 	modules = [
 	  ./configuration.nix
-	  nixvim.nixosModules.nixvim
-	  {
-	    programs = import ./neovim.nix;
-	  }
 	  
 	  home-manager.nixosModules.home-manager
 	  {
