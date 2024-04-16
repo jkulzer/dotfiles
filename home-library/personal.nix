@@ -1,12 +1,4 @@
-{ config, lib, pkgs, ... }:
-
 {
-  home.username = "johannes";
-  home.homeDirectory = "/home/johannes";
-
-  services.syncthing = {
-    enable = true;
-  };
   # ConfigFile for hyfetch
   home.file.".config/hyfetch.json" = {
     text = ''
@@ -25,6 +17,4 @@
       }
     '';
   }; #hyfetch config ending
-  home.stateVersion = "23.11";
-  #} # End of User config
 }

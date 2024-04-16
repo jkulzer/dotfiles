@@ -1,15 +1,11 @@
-{ pkgs }:
-
-with pkgs;
-let
+{pkgs}:
+with pkgs; let
   modifier = "Mod1";
   left = "h";
   down = "j";
   up = "k";
   right = "l";
-
-in
-{
+in {
   # General stuff
   "${modifier}+q" = "kill";
 
@@ -25,14 +21,14 @@ in
   "${modifier}+Space" = "exec bemenu-run"; # bemenu
 
   # Music control
- "Ctrl+Shift+l"  = "exec playerctl next"; # Next Track
- "Ctrl+Shift+h"  = "exec playerctl previous"; # Previous Track
- "Ctrl+Shift+Space"  = "exec playerctl play-pause"; # Play/Pause current track
- "Ctrl+Shift+j"  = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; # Volume up by 5%
- "Ctrl+Shift+k"  = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # Volume down by 5 %
+  "Ctrl+Shift+l" = "exec playerctl next"; # Next Track
+  "Ctrl+Shift+h" = "exec playerctl previous"; # Previous Track
+  "Ctrl+Shift+Space" = "exec playerctl play-pause"; # Play/Pause current track
+  "Ctrl+Shift+j" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; # Volume up by 5%
+  "Ctrl+Shift+k" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # Volume down by 5 %
 
   # screenshots
-  "${modifier}+p" = "exec grim -g \"$(slurp)\" - | wl-copy";
+  "${modifier}+p" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
 
   "${modifier}+${left}" = "focus left; exec $movemouse";
   "${modifier}+${down}" = "focus down; exec $movemouse";
