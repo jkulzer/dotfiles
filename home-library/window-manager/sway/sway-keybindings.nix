@@ -1,5 +1,4 @@
-{pkgs}:
-with pkgs; let
+{pkgs, ...}: let
   modifier = "Mod1";
   left = "h";
   down = "j";
@@ -24,8 +23,18 @@ in {
   "Ctrl+Shift+l" = "exec playerctl next"; # Next Track
   "Ctrl+Shift+h" = "exec playerctl previous"; # Previous Track
   "Ctrl+Shift+Space" = "exec playerctl play-pause"; # Play/Pause current track
-  "Ctrl+Shift+j" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; # Volume up by 5%
-  "Ctrl+Shift+k" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # Volume down by 5 %
+  "XF86AudioPrev" = "exec playerctl previous"; # Previous Track
+  "XF86AudioNext" = "exec playerctl next"; # Next Track
+  "XF86AudioPause" = "exec playerctl play-pause"; # Play/Pause current track
+
+  "ctrl+shift+j" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; # volume up by 5%
+  "ctrl+shift+k" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # volume down by 5 %
+
+  "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; # volume up by 5%
+  "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # volume down by 5 %
+
+  "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%+";
+  "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 5%-";
 
   # screenshots
   "${modifier}+p" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";

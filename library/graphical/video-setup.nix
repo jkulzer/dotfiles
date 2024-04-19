@@ -1,5 +1,8 @@
-{ lib, config, ...}:
 {
+  lib,
+  config,
+  ...
+}: {
   config = lib.mkIf config.jkulzerFlakeLib.graphicalSystem.enable {
     # Needed for sway
     hardware.opengl = {

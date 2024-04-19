@@ -1,10 +1,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-{ pkgs, ... }:
-{
-
-  imports = [ 
+{pkgs, ...}: {
+  imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -21,7 +19,7 @@
     emojione # Open Source Emoji font
   ];
 
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "lenowo-twinkpad"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -46,9 +44,9 @@
   security.polkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.johannes= {
+  users.users.johannes = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       # The best browser
       firefox
@@ -117,7 +115,6 @@
       gopls # Golang
       rust-analyzer # Rust
 
-      
       # Other IAC stuff
       alejandra # nix formatter
 
@@ -165,10 +162,9 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-
   # Docker
   virtualisation.docker.enable = true;
-  
+
   # A display/login manager
   services.greetd = {
     enable = true;
@@ -233,7 +229,7 @@
     # ZSH Plugin system
     ohMyZsh = {
       enable = true;
-      plugins = [ 
+      plugins = [
         "kubectl" # Shortens kubectl to k and has other useful aliases
         "vi-mode" # Enables editing of commands with vim commands (activate normal mode with esc)
         "fzf" # Fuzzy finder
@@ -250,8 +246,7 @@
         disabled = true;
       };
     };
-  }; 
-
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -260,10 +255,10 @@
   };
 
   # Open ports in firewall
-  networking.firewall.allowedTCPPorts = [ 
+  networking.firewall.allowedTCPPorts = [
     22000 # Syncthing
   ];
-  networking.firewall.allowedUDPPorts = [ 
+  networking.firewall.allowedUDPPorts = [
     22000 # Syncthing
     21027 # Syncthing
   ];
@@ -286,5 +281,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }

@@ -1,5 +1,4 @@
-{ pkgs, lib, ...}:
-{
+{pkgs, ...}: {
   users.defaultUserShell = pkgs.zsh;
 
   environment.systemPackages = with pkgs; [
@@ -8,7 +7,7 @@
     dig
     htop
     openssl
-    fzf
+    fzf-zsh
     nmap
     traceroute
     bat
@@ -21,11 +20,13 @@
     alejandra # nix formatter
     gh # GitHub CLI
   ];
-  
+
   programs.zsh = {
     enable = true;
     # Disables the startup wizard
-    shellInit = "zsh-newuser-install() { :; }";
+    shellInit = ''
+      zsh-newuser-install() { :; }
+    '';
     # Increases the hist size
     histSize = 25000;
     # Useful syntax stuff
@@ -39,6 +40,7 @@
       ];
     };
   };
+
   programs.starship = {
     enable = true;
     settings = {
@@ -48,15 +50,4 @@
       };
     };
   };
-
-#   config = lib.mkIf config.jkulzerFlabeLib.personalSystem.enable {
-#     users.users.${config.jkulzerFlakeLib.userName} = {
-#       packages = with pkgs; [
-#         hyfetch
-# 	blahaj
-# 	uwufetch
-# 	gay
-#       ];
-#     };
-#   };
 }
