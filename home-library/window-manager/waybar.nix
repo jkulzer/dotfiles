@@ -95,6 +95,10 @@
              padding-left: 5px;
          }
 
+				 #cpu {
+				 		color: #ffffff;
+				 }
+
          @keyframes blink {
              to {
                  background-color: #ffffff;
@@ -118,8 +122,7 @@
          }
 
          #language {
-             background: #00b093;
-             color: #740864;
+             color: #ffffff;
              padding: 0 5px;
              margin: 0 5px;
              min-width: 16px;
@@ -152,10 +155,27 @@
         layer = "top";
         position = "top";
         modules-left = ["sway/workspaces"];
-        modules-right = ["clock" "pulseaudio"];
+				modules-center = [ "custom/ical-timediff" ];
+        modules-right = ["cpu" "sway/language" "pulseaudio" "clock"];
         pulseaudio = {
           scroll-step = 5; # in %
         };
+				"custom/ical-timediff" = {
+    			return-type = "json";
+    			exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://calendar.google.com/calendar/ical/b595ff65fc2c4c1c63a7a3aeefae5ef07c136557353223d8766a2f814db234a1%40group.calendar.google.com/public/basic.ics";
+					format = "{} / -";
+				};
+				clock = {
+					interval = 1;
+					format = "{:%H:%M:%S}";
+					tooltip = "true";
+					# tooltip-format = "{%d.%m}";
+				};
+				cpu = {
+					"interval"= 10;
+    			"format"= "{load}";
+    			"max-length"= 10;
+				};
       }; # mainBar config end
     }; # waybar settings end
   }; # waybar config end

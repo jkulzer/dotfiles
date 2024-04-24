@@ -7,6 +7,7 @@
     dig
     htop
     openssl
+		fzf
     fzf-zsh
     nmap
     traceroute
@@ -27,6 +28,9 @@
     shellInit = ''
       zsh-newuser-install() { :; }
     '';
+		shellAliases = {
+			k = "kubectl";
+		};
     # Increases the hist size
     histSize = 25000;
     # Useful syntax stuff
@@ -37,6 +41,7 @@
       enable = true;
       plugins = [
         "fzf"
+				"kubectl"
       ];
     };
   };

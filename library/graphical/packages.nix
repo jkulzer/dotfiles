@@ -21,7 +21,8 @@
         obsidian # Knowledge manager
 
         # Communication
-        element-desktop # Matrix clien
+        element-desktop # Matrix client
+				signal-desktop
 
         # Media stuff
         mpv

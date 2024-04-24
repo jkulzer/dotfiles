@@ -71,9 +71,11 @@
             jkulzerFlakeLib = {
               graphicalSystem.enable = true;
               personalSystem.enable = true;
+							education.enable = true;
               battery.enable = true;
               wifi.enable = true;
               bluetooth.enable = true;
+							intel.enable = true;
               integratedDisplay.enable = true;
               userName = "johannes";
             };

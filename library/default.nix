@@ -10,5 +10,6 @@
 
     ./graphical
     ./wireless
+		./hardware
   ];
 }

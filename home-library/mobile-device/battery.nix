@@ -17,7 +17,7 @@
           modules-right = ["battery"];
           battery = {
             format = "{power}W@{capacity}%";
-            interval = "5";
+            interval = "1";
           };
         }; # mainBar config end
       }; # waybar settings end

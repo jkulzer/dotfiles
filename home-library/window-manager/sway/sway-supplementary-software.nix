@@ -55,4 +55,8 @@
       Restart = "on-failure";
     };
   };
+	home.sessionVariables = {
+    # https://github.com/swaywm/sway/issues/595
+    "_JAVA_AWT_WM_NONREPARENTING" = "1";
+	};
 }

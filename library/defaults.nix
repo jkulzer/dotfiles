@@ -3,8 +3,10 @@
 
   environment.systemPackages = with pkgs; [
     # Nix helper tools
-    nh
+    # nh
     nix-output-monitor
     nvd
+		
+		unzip
   ];
 }
