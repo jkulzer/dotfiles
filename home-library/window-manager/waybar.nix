@@ -162,8 +162,9 @@
         };
 				"custom/ical-timediff" = {
     			return-type = "json";
-    			exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://calendar.google.com/calendar/ical/b595ff65fc2c4c1c63a7a3aeefae5ef07c136557353223d8766a2f814db234a1%40group.calendar.google.com/public/basic.ics";
-					format = "{} / -";
+					interval = 15;
+    			exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester2/kursa/Tutorium/Gruppe%201/Englisch";
+					format = "Lecture Progress: {}";
 				};
 				clock = {
 					interval = 1;

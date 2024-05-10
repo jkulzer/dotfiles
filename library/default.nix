@@ -7,6 +7,7 @@
     ./options.nix
     ./shell.nix
     ./mobile-device
+		./cryptography.nix
 
     ./graphical
     ./wireless

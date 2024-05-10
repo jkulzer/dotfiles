@@ -1,6 +1,6 @@
+{ lib, ...}:
 {
-  imports = [
+	imports = [
     ./bluetooth.nix
-    ./networking.nix
-  ];
+	] ++ lib.optional (builtins.pathExists ./networking.nix) ./networking.nix;
 }

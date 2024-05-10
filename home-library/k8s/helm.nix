@@ -51,6 +51,8 @@
         url: https://minicloudlabs.github.io/helm-charts
       - name: stakater
         url: https://stakater.github.io/stakater-charts
+      - name: cnpg 
+        url: https://cloudnative-pg.github.io/charts
     '';
   }; # helm config ending
 }

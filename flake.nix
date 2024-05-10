@@ -1,18 +1,23 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixvim = {
-      url = "github:jkulzer/nvim-nix";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:jkulzer/nvim-nix";
+    };
+		sops-nix = {
+			url = "github:Mic92/sops-nix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     nixvim,
+		sops-nix,
     ...
   }: {
     nixosConfigurations = {
@@ -67,6 +72,7 @@
         modules = [
           ./configuration.nix
           ./library
+					sops-nix.nixosModules.sops
           {
             jkulzerFlakeLib = {
               graphicalSystem.enable = true;
