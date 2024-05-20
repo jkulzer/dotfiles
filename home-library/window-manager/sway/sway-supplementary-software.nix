@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     wl-clipboard
+		waypipe
   ];
   xdg.portal = {
     enable = true;
