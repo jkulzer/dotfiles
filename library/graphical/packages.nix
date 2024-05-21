@@ -11,7 +11,7 @@
       extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [
         # The best browser
-        firefox
+        # firefox
 
         # Utilities
         libsForQt5.ark # KDE Unzipping tool
