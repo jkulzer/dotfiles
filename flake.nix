@@ -47,6 +47,7 @@
               graphicalSystem.enable = true;
               personalSystem.enable = true;
               userName = "johannes";
+              bluetooth.enable = true;
             };
           }
 
@@ -59,6 +60,14 @@
             home-manager.users.johannes = {
               imports = [
                 ./home-library
+                {
+                  jkulzerFlakeLib = {
+                    graphicalSystem.enable = true;
+                    personalSystem.enable = true;
+                    bluetooth.enable = true;
+                    userName = "johannes";
+                  };
+								}
               ];
             };
           }
