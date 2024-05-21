@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
   let
     lock-false = {
@@ -15,6 +15,22 @@
     firefox = {
       enable = true;
 			profiles.johannes = {
+				extensions = with pkgs.nur.repos.rycee.firefox-addons; [ 
+					ublock-origin 
+					bitwarden 
+					enhancer-for-youtube
+					facebook-container
+					fastforwardteam
+					reddit-enhancement-suite
+					sponsorblock
+					tab-counter-plus
+					tree-style-tab
+					multi-account-containers
+					#//TODO
+					# shinigami eyes
+					# xkit rewritten
+					# youtube mrbeastify
+				];
 				userChrome = ''
 /* hides the native tabs */
 #TabsToolbar {
@@ -35,8 +51,6 @@
           Fingerprinting = true;
         };
         DisablePocket = true;
-        DisableFirefoxAccounts = true;
-        DisableAccounts = true;
         DisableFirefoxScreenshots = true;
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";

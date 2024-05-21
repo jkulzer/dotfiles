@@ -16,6 +16,9 @@
 			url = "github:danth/stylix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nur = {
+			url = "github:nix-community/NUR";
+		};
   };
   outputs = inputs @ {
     nixpkgs,
@@ -23,6 +26,7 @@
     nixvim,
 		sops-nix,
 		stylix,
+		nur,
     ...
   }: {
     nixosConfigurations = {
@@ -35,12 +39,14 @@
             (final: prev: {
               neovim = nixvim.packages.x86_64-linux.default;
             })
+						inputs.nur.overlay
           ];
         };
 
         modules = [
           ./configuration.nix
 					./hardware/desktop.nix
+					nur.nixosModules.nur
           ./library
           {
             jkulzerFlakeLib = {
