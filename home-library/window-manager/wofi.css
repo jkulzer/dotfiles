@@ -1,0 +1,27 @@
+window {
+    margin: 5px;
+    opacity: 1;
+}
+
+#input {
+    margin: 10px;
+}
+
+#inner-box {
+    margin: 5px;
+}
+
+#outer-box {
+    margin: 5px;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#text {
+    margin: 5px;
+}
+
+#entry:selected {
+}

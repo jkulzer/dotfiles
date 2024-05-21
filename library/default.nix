@@ -8,6 +8,7 @@
     ./shell.nix
     ./mobile-device
 		./cryptography.nix
+		./stylix.nix
 
     ./graphical
     ./wireless

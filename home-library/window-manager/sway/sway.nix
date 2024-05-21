@@ -4,27 +4,27 @@
     config = {
       keybindings = import ./sway-keybindings.nix {inherit pkgs;};
       colors = {
-        focused = {
-          background = "#285577";
-          border = "#d60270";
-          childBorder = "#d60270";
-          indicator = "#d60270";
-          text = "#ffffff";
-        };
-        focusedInactive = {
-          background = "#9B4F96";
-          border = "#9B4F96";
-          childBorder = "#9B4F96";
-          indicator = "#0038a8";
-          text = "#ffffff";
-        };
-        unfocused = {
-          background = "#285577";
-          border = "#0038a8";
-          childBorder = "#0038a8";
-          indicator = "#0038a8";
-          text = "#ffffff";
-        };
+        # focused = {
+        #   background = "#285577";
+        #   border = "#d60270";
+        #   childBorder = "#d60270";
+        #   indicator = "#d60270";
+        #   text = "#ffffff";
+        # };
+        # focusedInactive = {
+        #   background = "#9B4F96";
+        #   border = "#9B4F96";
+        #   childBorder = "#9B4F96";
+        #   indicator = "#0038a8";
+        #   text = "#ffffff";
+        # };
+        # unfocused = {
+        #   background = "#285577";
+        #   border = "#0038a8";
+        #   childBorder = "#0038a8";
+        #   indicator = "#0038a8";
+        #   text = "#ffffff";
+        # };
       };
       gaps = {
         inner = 2;
@@ -49,7 +49,6 @@
           pos = "0 0";
         };
         HDMI-A-1 = {
-          # pos = "-1920 0";
           pos = "-1680 0";
         };
         "*" = {

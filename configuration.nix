@@ -1,12 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    # ./library
-  ];
-
-  # networking.hostName = "laptop"; # Define your hostname.
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
     isNormalUser = true;

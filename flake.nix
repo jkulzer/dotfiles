@@ -12,12 +12,17 @@
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		stylix = {
+			url = "github:danth/stylix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     nixvim,
 		sops-nix,
+		stylix,
     ...
   }: {
     nixosConfigurations = {
@@ -35,6 +40,7 @@
 
         modules = [
           ./configuration.nix
+					./hardware/desktop.nix
           ./library
           {
             jkulzerFlakeLib = {
@@ -44,6 +50,7 @@
             };
           }
 
+					stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -71,6 +78,7 @@
 
         modules = [
           ./configuration.nix
+					./hardware/lenowo-twinkpad.nix
           ./library
 					sops-nix.nixosModules.sops
           {
@@ -89,6 +97,7 @@
             networking.hostName = "lenowo-twinkpad";
           }
 
+					stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

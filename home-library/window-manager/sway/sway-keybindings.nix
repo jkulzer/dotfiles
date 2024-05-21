@@ -13,11 +13,8 @@ in {
   "${modifier}+Return" = "exec kitty"; # Terminal
   "${modifier}+f" = "exec firefox"; # Firefox
   "${modifier}+w" = "exec swaylock"; # Lockscreen
-  "${modifier}+d" = "exec vesktop"; # Discord
   "${modifier}+o" = "exec obsidian"; # Obsidian (Note taking tool)
-  "${modifier}+g" = "exec gimp"; # Gimp
-  "${modifier}+r" = "exec winbox"; # Winbox
-  "${modifier}+Space" = "exec bemenu-run"; # bemenu
+  "${modifier}+Space" = "exec ${pkgs.wofi}/bin/wofi --show drun --allow-images --allow-markup"; # wofi
 
   # Music control
   "Ctrl+Shift+l" = "exec playerctl next"; # Next Track
