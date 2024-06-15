@@ -3,7 +3,7 @@
     enable = true;
     systemd.enable = true;
     style = ''
-				  #workspaces button {
+      #workspaces button {
              padding: 0 5px;
          }
 
@@ -50,29 +50,29 @@
         layer = "top";
         position = "top";
         modules-left = ["sway/workspaces"];
-				modules-center = [ "custom/ical-timediff" ];
+        modules-center = ["custom/ical-timediff"];
         modules-right = ["cpu" "sway/language" "pulseaudio" "clock"];
-				height = 27;
+        height = 27;
         pulseaudio = {
           scroll-step = 5; # in %
         };
-				"custom/ical-timediff" = {
-    			return-type = "json";
-					interval = 15;
-    			exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester2/kursa/Tutorium/Gruppe%201/Englisch";
-					format = "Lecture Progress: {}";
-				};
-				clock = {
-					interval = 1;
-					format = "{:%H:%M:%S}";
-					tooltip = "true";
-					# tooltip-format = "{%d.%m}";
-				};
-				cpu = {
-					"interval"= 10;
-    			"format"= "{load}";
-    			"max-length"= 10;
-				};
+        "custom/ical-timediff" = {
+          return-type = "json";
+          interval = 15;
+          exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester2/kursa/Tutorium/Gruppe%201/Englisch";
+          format = "Lecture Progress: {}";
+        };
+        clock = {
+          interval = 1;
+          format = "{:%H:%M:%S}";
+          tooltip = "true";
+          # tooltip-format = "{%d.%m}";
+        };
+        cpu = {
+          "interval" = 10;
+          "format" = "{load}";
+          "max-length" = 10;
+        };
       }; # mainBar config end
     }; # waybar settings end
   }; # waybar config end

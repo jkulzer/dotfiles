@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -8,5 +9,12 @@
       enable = true;
       remotePlay.openFirewall = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      mangohud
+      gamemode
+      discord
+      vesktop
+    ];
   };
 }

@@ -1,6 +1,7 @@
 {
   imports = [
     ./gtk.nix
+    ./firefox.nix
     ./kitty.nix
     ./mako.nix
     ./wofi.nix

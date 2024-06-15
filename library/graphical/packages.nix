@@ -22,7 +22,7 @@
 
         # Communication
         element-desktop # Matrix client
-				signal-desktop
+        signal-desktop
 
         # Media stuff
         mpv

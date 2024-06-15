@@ -6,7 +6,8 @@
   right = "l";
 in {
   # General stuff
-  "${modifier}+q" = "kill";
+  "${modifier}+Shift+q" = "kill";
+  "${modifier}+Shift+f" = "fullscreen";
 
   # Applications
   "${modifier}+t" = "exec kitty"; # Terminal
