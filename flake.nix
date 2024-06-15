@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-config = {
+      # url = "github:jkulzer/home-manager-config";
+      url = "git+file:///home/johannes/home-manager-config";
+    };
     nixvim = {
       url = "github:jkulzer/nvim-nix";
     };
@@ -23,6 +27,7 @@
   outputs = inputs @ {
     nixpkgs,
     home-manager,
+    home-manager-config,
     nixvim,
 		sops-nix,
 		stylix,
@@ -88,12 +93,14 @@
             (final: prev: {
               neovim = nixvim.packages.x86_64-linux.default;
             })
+						inputs.nur.overlay
           ];
         };
 
         modules = [
           ./configuration.nix
 					./hardware/lenowo-twinkpad.nix
+					nur.nixosModules.nur
           ./library
 					sops-nix.nixosModules.sops
           {
@@ -120,7 +127,8 @@
 
             home-manager.users.johannes = {
               imports = [
-                ./home-library
+								home-manager-config.config
+                # ./home-library
                 {
                   jkulzerFlakeLib = {
                     graphicalSystem.enable = true;

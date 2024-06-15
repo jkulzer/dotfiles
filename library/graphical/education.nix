@@ -5,15 +5,11 @@
 		};
 		environment.systemPackages = with pkgs; [
 			logisim
+			logisim-evolution
 
-    	# support both 32- and 64-bit applications
-    	wineWowPackages.stable
+			geogebra6
 
-    	# winetricks (all versions)
-    	winetricks
-
-    	# native wayland support (unstable)
-    	wineWowPackages.waylandFull
+			eclipses.eclipse-java
 		];
 	};
 }

@@ -53,6 +53,8 @@
         url: https://stakater.github.io/stakater-charts
       - name: cnpg 
         url: https://cloudnative-pg.github.io/charts
+      - name: immich 
+        url: https://immich-app.github.io/immich-charts
     '';
   }; # helm config ending
 }

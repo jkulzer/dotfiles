@@ -37,7 +37,10 @@
 }
 		'';
 
-			search.default = "DuckDuckGo";
+			search = {
+				default = "DuckDuckGo";
+				force = true;
+			};
 		};
 		
 

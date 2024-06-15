@@ -5,7 +5,9 @@
   ];
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr];
+    extraPortals = [
+			pkgs.xdg-desktop-portal-wlr
+		];
     config.common.default = "*";
   };
   # Screen Locker
