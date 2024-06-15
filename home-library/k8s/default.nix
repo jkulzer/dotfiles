@@ -1,6 +1,6 @@
 {
   imports = [
     ./helm.nix
-		./kubectl.nix
+    ./kubectl.nix
   ];
 }

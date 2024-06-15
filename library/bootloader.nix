@@ -12,9 +12,9 @@
     device = "nodev";
     useOSProber = true;
     configurationLimit = 50;
-	  memtest86.enable = true; # Memtest
+    memtest86.enable = true; # Memtest
   };
-	stylix.targets.grub.useImage = true;
+  stylix.targets.grub.useImage = true;
 
   boot.tmp.cleanOnBoot = true;
 

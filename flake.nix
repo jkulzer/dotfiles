@@ -12,26 +12,26 @@
     nixvim = {
       url = "github:jkulzer/nvim-nix";
     };
-		sops-nix = {
-			url = "github:Mic92/sops-nix";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		stylix = {
-			url = "github:danth/stylix";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		nur = {
-			url = "github:nix-community/NUR";
-		};
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+    };
   };
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     home-manager-config,
     nixvim,
-		sops-nix,
-		stylix,
-		nur,
+    sops-nix,
+    stylix,
+    nur,
     ...
   }: {
     nixosConfigurations = {
@@ -44,14 +44,14 @@
             (final: prev: {
               neovim = nixvim.packages.x86_64-linux.default;
             })
-						inputs.nur.overlay
+            inputs.nur.overlay
           ];
         };
 
         modules = [
           ./configuration.nix
-					./hardware/desktop.nix
-					nur.nixosModules.nur
+          ./hardware/desktop.nix
+          nur.nixosModules.nur
           ./library
           {
             jkulzerFlakeLib = {
@@ -62,7 +62,7 @@
             };
           }
 
-					stylix.nixosModules.stylix
+          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -78,7 +78,7 @@
                     bluetooth.enable = true;
                     userName = "johannes";
                   };
-								}
+                }
               ];
             };
           }
@@ -93,25 +93,25 @@
             (final: prev: {
               neovim = nixvim.packages.x86_64-linux.default;
             })
-						inputs.nur.overlay
+            inputs.nur.overlay
           ];
         };
 
         modules = [
           ./configuration.nix
-					./hardware/lenowo-twinkpad.nix
-					nur.nixosModules.nur
+          ./hardware/lenowo-twinkpad.nix
+          nur.nixosModules.nur
           ./library
-					sops-nix.nixosModules.sops
+          sops-nix.nixosModules.sops
           {
             jkulzerFlakeLib = {
               graphicalSystem.enable = true;
               personalSystem.enable = true;
-							education.enable = true;
+              education.enable = true;
               battery.enable = true;
               wifi.enable = true;
               bluetooth.enable = true;
-							intel.enable = true;
+              intel.enable = true;
               integratedDisplay.enable = true;
               userName = "johannes";
             };
@@ -119,7 +119,7 @@
             networking.hostName = "lenowo-twinkpad";
           }
 
-					stylix.nixosModules.stylix
+          stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -127,7 +127,7 @@
 
             home-manager.users.johannes = {
               imports = [
-								home-manager-config.config
+                home-manager-config.config
                 # ./home-library
                 {
                   jkulzerFlakeLib = {

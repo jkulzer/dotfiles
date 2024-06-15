@@ -35,15 +35,15 @@
       };
       bars = []; # This disables the default bar
       # I don't want to start waybar from here, imo a systemd service provides control
-			input = {
-				"type:touchpad" =  {
-    			natural_scroll = "disabled";
-				};
-				"type:keyboard" = {
-					xkb_layout = "us,de";
-    			xkb_options =  "grp:win_space_toggle,compose:caps";
-				};
-			};
+      input = {
+        "type:touchpad" = {
+          natural_scroll = "disabled";
+        };
+        "type:keyboard" = {
+          xkb_layout = "us,de";
+          xkb_options = "grp:win_space_toggle,compose:caps";
+        };
+      };
       output = {
         DP-3 = {
           pos = "0 0";

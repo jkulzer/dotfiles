@@ -38,7 +38,7 @@
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
 
-	services.tailscale.enable = true;
+  services.tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

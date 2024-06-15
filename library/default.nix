@@ -7,11 +7,11 @@
     ./options.nix
     ./shell.nix
     ./mobile-device
-		./cryptography.nix
-		./stylix.nix
+    ./cryptography.nix
+    ./stylix.nix
 
     ./graphical
     ./wireless
-		./hardware
+    ./hardware
   ];
 }

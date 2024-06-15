@@ -15,7 +15,7 @@
         mainBar = {
           modules-right = ["network"];
           network = {
-						interval = 1;
+            interval = 1;
             format-wifi = "{essid}@{ifname}";
           };
         }; # mainBar config end

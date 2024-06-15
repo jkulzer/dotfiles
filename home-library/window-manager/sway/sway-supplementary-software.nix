@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     wl-clipboard
-		waypipe
+    waypipe
   ];
   xdg.portal = {
     enable = true;
     extraPortals = [
-			pkgs.xdg-desktop-portal-wlr
-		];
+      pkgs.xdg-desktop-portal-wlr
+    ];
     config.common.default = "*";
   };
   # Screen Locker
@@ -58,8 +58,8 @@
       Restart = "on-failure";
     };
   };
-	home.sessionVariables = {
+  home.sessionVariables = {
     # https://github.com/swaywm/sway/issues/595
     "_JAVA_AWT_WM_NONREPARENTING" = "1";
-	};
+  };
 }
