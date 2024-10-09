@@ -1,10 +1,8 @@
 {
-  config,
-  lib,
-  pkgs,
+	osConfig,
   ...
 }: {
-  home.username = "johannes";
+  home.username = "${osConfig.jkulzerFlakeLib.userName}";
   home.homeDirectory = "/home/johannes";
 
   home.stateVersion = "23.11";

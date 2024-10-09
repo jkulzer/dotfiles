@@ -63,6 +63,7 @@ in {
           "https://addons.mozilla.org/firefox/downloads/latest/youtube-mrbeastify/latest.xpi"
           "https://addons.mozilla.org/firefox/downloads/latest/xkit-rewritten/latest.xpi"
           "https://addons.mozilla.org/firefox/downloads/latest/shinigami-eyes/latest.xpi"
+          "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
         ];
       };
       NewTabPage = false;

@@ -59,7 +59,7 @@
         "custom/ical-timediff" = {
           return-type = "json";
           interval = 15;
-          exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester2/kursa/Tutorium/Gruppe%201/Englisch";
+          exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester3/kursa/Tutorium/Gruppe%201/Englisch";
           format = "Lecture Progress: {}";
         };
         clock = {

@@ -1,16 +1,6 @@
+{...}:
 {
-  config,
-  lib,
-  ...
-}: {
-  imports = [
-    ./home.nix
-    ./personal.nix
-    ./mobile-device
-    ../library/options.nix
-
-    ./k8s
-    ./window-manager
-    ./wireless
-  ];
+	home-manager.useGlobalPkgs = true;
+	home-manager.useUserPackages = true;
+	home-manager.users.johannes = import ./johannes;
 }

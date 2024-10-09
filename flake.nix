@@ -5,10 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager-config = {
-      # url = "github:jkulzer/home-manager-config";
-      url = "git+file:///home/johannes/home-manager-config";
-    };
+    # home-manager-config = {
+    #   # url = "github:jkulzer/home-manager-config";
+    #   url = "git+file:///home/johannes/home-manager-config";
+    # };
     nixvim = {
       url = "github:jkulzer/nvim-nix";
     };
@@ -27,18 +27,20 @@
   outputs = inputs @ {
     nixpkgs,
     home-manager,
-    home-manager-config,
+    # home-manager-config,
     nixvim,
     sops-nix,
     stylix,
     nur,
     ...
-  }: {
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  }:
+		let
+			mkSystem = { hostname, arch }: nixpkgs.lib.nixosSystem {
+				specialArgs = { inherit inputs; };
+				system = arch;
+
         pkgs = import nixpkgs {
-          system = "x86_64-linux";
+          system = arch;
           config.allowUnfree = true;
           overlays = [
             (final: prev: {
@@ -49,102 +51,58 @@
         };
 
         modules = [
-          ./configuration.nix
-          ./hardware/desktop.nix
+					./configuration.nix
+          ./hardware/${hostname}.nix
+
           nur.nixosModules.nur
+
+          stylix.nixosModules.stylix
+
           ./library
+
+          home-manager.nixosModules.home-manager
+          ./home-library
+
           {
             jkulzerFlakeLib = {
               graphicalSystem.enable = true;
               personalSystem.enable = true;
               userName = "johannes";
               bluetooth.enable = true;
+              # education.enable = true;
+              # battery.enable = true;
+              # wifi.enable = true;
+              # bluetooth.enable = true;
+              # intel.enable = true;
+              # integratedDisplay.enable = true;
             };
+
+						networking.hostName = "${hostname}";
           }
 
-          stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.johannes = {
-              imports = [
-                ./home-library
-                {
-                  jkulzerFlakeLib = {
-                    graphicalSystem.enable = true;
-                    personalSystem.enable = true;
-                    bluetooth.enable = true;
-                    userName = "johannes";
-                  };
-                }
-              ];
-            };
-          }
+          # {
+          #   home-manager.users.johannes = {
+          #     imports = [
+          #       {
+          #         jkulzerFlakeLib = {
+          #           graphicalSystem.enable = true;
+          #           personalSystem.enable = true;
+          #           bluetooth.enable = true;
+          #           userName = "johannes";
+          #           # battery.enable = true;
+          #           # wifi.enable = true;
+          #           # integratedDisplay.enable = true;
+          #         };
+          #       }
+          #     ];
+          #   };
+          # }
         ];
-      };
-      lenowo-twinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-          overlays = [
-            (final: prev: {
-              neovim = nixvim.packages.x86_64-linux.default;
-            })
-            inputs.nur.overlay
-          ];
-        };
-
-        modules = [
-          ./configuration.nix
-          ./hardware/lenowo-twinkpad.nix
-          nur.nixosModules.nur
-          ./library
-          sops-nix.nixosModules.sops
-          {
-            jkulzerFlakeLib = {
-              graphicalSystem.enable = true;
-              personalSystem.enable = true;
-              education.enable = true;
-              battery.enable = true;
-              wifi.enable = true;
-              bluetooth.enable = true;
-              intel.enable = true;
-              integratedDisplay.enable = true;
-              userName = "johannes";
-            };
-
-            networking.hostName = "lenowo-twinkpad";
-          }
-
-          stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.johannes = {
-              imports = [
-                home-manager-config.config
-                # ./home-library
-                {
-                  jkulzerFlakeLib = {
-                    graphicalSystem.enable = true;
-                    personalSystem.enable = true;
-                    battery.enable = true;
-                    bluetooth.enable = true;
-                    wifi.enable = true;
-                    integratedDisplay.enable = true;
-                    userName = "johannes";
-                  };
-                }
-              ];
-            };
-          }
-        ];
-      };
-    };
-  };
+			};
+		in {
+			nixosConfigurations = {
+				desktop = mkSystem { hostname = "desktop"; arch = "x86_64-linux";};
+				lenowo-twinkpad = mkSystem { hostname = "lenowo-twinkpad"; arch = "x86_64-linux";};
+			};
+		};
 }

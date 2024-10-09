@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf config.jkulzerFlakeLib.bluetooth.enable {
+  # config = lib.mkIf config.jkulzerFlakeLib.bluetooth.enable {
     home.packages = with pkgs; [
       bluetuith
     ];
@@ -21,5 +21,5 @@
       '';
     };
     services.mpris-proxy.enable = true; # Allows media keys from bluetooth headset
-  };
+  # };
 }

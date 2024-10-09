@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -14,7 +13,7 @@
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = ["kvm-amd" ];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
@@ -38,4 +37,11 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+	jkulzerFlakeLib = {
+		graphicalSystem.enable = true;
+		personalSystem.enable = true;
+		userName = "johannes";
+		bluetooth.enable = true;
+	};
 }

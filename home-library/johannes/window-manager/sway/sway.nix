@@ -51,14 +51,14 @@
         HDMI-A-1 = {
           pos = "-1680 0";
         };
-        "*" = {
-          bg = let
-            img = builtins.fetchurl {
-              url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-stripes-logo.png";
-              sha256 = "0cqjkgp30428c1yy8s4418k4qz0ycr6fzcg4rdi41wkh5g1hzjnl";
-            };
-          in "${img} fill";
-        };
+        # "*" = {
+        #   bg = let
+        #     img = builtins.fetchurl {
+        #       url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-stripes-logo.png";
+        #       sha256 = "0cqjkgp30428c1yy8s4418k4qz0ycr6fzcg4rdi41wkh5g1hzjnl";
+        #     };
+        #   in "${img} fill";
+        # };
       };
       workspaceOutputAssign = [
         {
