@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   stylix = {
-		enable = true;
-		polarity = "dark";
+    enable = true;
+    polarity = "dark";
     image = ../wallpaper.jpg;
     # image = builtins.fetchurl {
     #   url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-stripes-logo.png";

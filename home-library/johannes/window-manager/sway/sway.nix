@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   wayland.windowManager.sway = {
     enable = true;
+		xwayland = true;
     config = {
       keybindings = import ./sway-keybindings.nix {inherit pkgs;};
       colors = {
