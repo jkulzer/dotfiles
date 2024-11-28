@@ -8,6 +8,7 @@
     ./packages.nix
     ./printing.nix
     ./swaylock.nix
+		./syncthing.nix
     ./video-setup.nix
     ./wayland.nix
   ];
