@@ -1,48 +1,49 @@
 {
+	# stylix.targets.waybar.enable = false;
+	stylix.opacity.desktop = 0.3;
   programs.waybar = {
     enable = true;
     systemd.enable = true;
     style = ''
-      #workspaces button {
-             padding: 0 5px;
-         }
+#workspaces button {
+	padding: 0 5px;
+}
+button {
+	/* Use box-shadow instead of border so the text isn't offset */
+	box-shadow: inset 0 -3px transparent;
+	/* Avoid rounded borders under each button name */
+	border: none;
+}
+#clock {
+	padding-right: 5px;
+	padding-left: 5px;
+}
 
-         button {
-             /* Use box-shadow instead of border so the text isn't offset */
-             box-shadow: inset 0 -3px transparent;
-             /* Avoid rounded borders under each button name */
-             border: none;
-             border-radius: 0;
-         }
-         #clock {
-             padding-right: 5px;
-             padding-left: 5px;
-         }
+#pulseaudio {
+	padding-right: 5px;
+	padding-left: 5px;
+}
 
-         #pulseaudio {
-             padding-right: 5px;
-             padding-left: 5px;
-         }
+#language {
+	padding: 0 5px;
+	margin: 0 5px;
+	min-width: 16px;
+}
 
-         #language {
-             padding: 0 5px;
-             margin: 0 5px;
-             min-width: 16px;
-         }
+#keyboard-state {
+	padding: 0 0px;
+	margin: 0 5px;
+	min-width: 16px;
+}
 
-         #keyboard-state {
-             padding: 0 0px;
-             margin: 0 5px;
-             min-width: 16px;
-         }
+#keyboard-state > label {
+	padding: 0 5px;
+}
 
-         #keyboard-state > label {
-             padding: 0 5px;
-         }
-
-         tooltip {
-           border: 1px solid ;
-         }
+tooltip {
+	border: 1px solid ;
+	opacity: 1;
+}
 
     '';
     settings = {
@@ -59,7 +60,7 @@
         "custom/ical-timediff" = {
           return-type = "json";
           interval = 15;
-          exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester3/kursa/Tutorium/Gruppe%201/Englisch";
+          exec = "~/projects/waybar-ical-timediff/result/bin/waybar-ical-timediff https://hwrical.zrgr.pw/informatik/semester3/kursa/Englisch/Gr.%201/klausur/";
           format = "Lecture Progress: {}";
         };
         clock = {
