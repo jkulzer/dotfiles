@@ -1,7 +1,6 @@
 {
   imports = [
     ./audio.nix
-    ./education.nix
     ./fonts.nix
     ./gaming.nix
     ./ide.nix

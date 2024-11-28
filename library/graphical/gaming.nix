@@ -14,8 +14,10 @@
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
+			protontricks.enable = true;
 			package = pkgs.steam.override {
         extraLibraries = pkgs: [ pkgs.xorg.libxcb ];
+				extraBwrapArgs = ["--bind /tmp /tmp"];
         extraPkgs =
           pkgs: with pkgs; [
             xorg.libXcursor
@@ -31,9 +33,9 @@
             gamemode
           ];
       };
-      # extraCompatPackages = with pkgs; [
-      #  	proton-ge-bin
-      # ];
+      extraCompatPackages = with pkgs; [
+       	proton-ge-bin
+      ];
     };
 
     environment.systemPackages = with pkgs; [
